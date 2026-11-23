@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-cream text-espresso-800 font-sans;
+    background-color: #F7F2E9;
+  }
+
+  ::selection {
+    background-color: rgba(197, 160, 89, 0.25);
+    color: #1E1511;
+  }
+}
+
+/* Custom luxury scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F7F2E9;
+}
+::-webkit-scrollbar-thumb {
+  background: #D9C6AE;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #6B4938;
+}
+
+/* Utility to hide scrollbar */
+.no-scrollbar::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+.no-scrollbar {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}
+
+/* Editorial line-clamp and text utilities */
+.editorial-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  letter-spacing: -0.015em;
+}
+
+.editorial-italic {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+}
+
+.editorial-subtitle {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+/* Delicate underline link hover inspired by fourfathers */
+.link-editorial {
+  position: relative;
+  display: inline-block;
+  transition: color 0.3s ease;
+}
+.link-editorial::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 1px;
+  bottom: -2px;
+  left: 0;
+  background-color: currentColor;
+  transform-origin: bottom right;
+  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.link-editorial:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* Subtle glassmorphism */
+.glass-cream {
+  background: rgba(247, 242, 233, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.glass-dark {
+  background: rgba(30, 21, 17, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
